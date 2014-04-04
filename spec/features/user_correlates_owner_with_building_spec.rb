@@ -12,15 +12,19 @@ feature "User correlates owner with building", %Q{
   # * If I delete an owner, the owner and its primary key should no
   #   longer be associated with any properties.
 
+  # Um, I don't really know how to do this, it will be an ugly mess, FAIR WARNING
+
   before :each do
+    @building = FactoryGirl.build(:building)
     @owner = FactoryGirl.build(:owner)
     visit new_owner_path
   end
 
-  scenario "With valid attributes" do
+  scenario "Some jerk gets a building" do
+
   end
 
 
-   scenario "without required attributes" do
-  end
+  # scenario "The owner stops existing" do
+  # end
 end
