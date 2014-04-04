@@ -7,11 +7,11 @@ feature "User creates new owner", %Q{
 } do
   # Acceptance Criteria:
 
-  # * I must specify a first name, last name, and email address
-  # * I can optionally specify a company name
-  # * If I do not specify the required information, I am presented with errors
-  # * If I specify the required information, the owner is recorded
-  #   and I am redirected to enter another new owner
+  # * I must specify a first name, last name, and email address (yay)
+  # * I can optionally specify a company name (yay)
+  # * If I do not specify the required information, I am presented with errors (yay)
+  # * If I specify the required information, the owner is recorded (yay)
+  #   and I am redirected to enter another new owner (boo)
 
   before :each do
     @owner = FactoryGirl.build(:owner)
