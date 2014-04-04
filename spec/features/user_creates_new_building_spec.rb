@@ -8,15 +8,15 @@ feature "User creates new building", %Q{
 
 # Acceptance Criteria:
 
-# * I must specify a street address, city, state, and postal code
-# * Only US states can be specified
-# * I can optionally specify a description of the building
+# * I must specify a street address, city, state, and postal code (yay)
+# * Only US states can be specified (boo)
+# * I can optionally specify a description of the building (yay)
 # * If I enter all of the required information in the required format,
-#   the building is recorded.
+#   the building is recorded. (yay)
 # * If I do not specify all of the required information in the required formats,
-#   the building is not recorded and I am presented with errors
+#   the building is not recorded and I am presented with errors (yay)
 # * Upon successfully creating a building, I am redirected
-#   so that I can record another building.
+#   so that I can record another building. (boo)
 
   before :each do
     @building = FactoryGirl.build(:building)
@@ -39,6 +39,10 @@ feature "User creates new building", %Q{
 
     expect(page).to have_content ("I LOVED THAT BUILDING, THANKS!")
 
+    # This is where I cheated because I couldn't test without the redirect
+    # If it is before 8 this is a reminder to myself to fix this
+    # If it is after 8 this is an excuse to whoever reviews this
+
     expect(page).to have_content (@building.street_address)
     expect(page).to have_content (@building.city)
     expect(page).to have_content (@building.state)
@@ -47,7 +51,11 @@ feature "User creates new building", %Q{
     expect(Building.count).to eq prev_count + 1
   end
 
-  # scenario "without valid attributes" do
-  #   # BAD STUFF HAPPENS
-  # end
+   scenario "without required attributes" do
+     click_on "USER FRIENDLY BUILDING ADDITION BUTTON"
+       expect(page).to have_content ("Street addresscan't be blank")
+       expect(page).to have_content ("Citycan't be blank")
+       expect(page).to have_content ("Statecan't be blank")
+       expect(page).to have_content ("Postal codecan't be blank")
+   end
 end
