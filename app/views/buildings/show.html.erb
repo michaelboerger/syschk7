@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<table>
+  <tr>
+    <td><%= "Street Address: #{@building.street_address}" %></td>
+  </tr><tr>
+    <td><%= "City: #{@building.city}" %></td>
+  </tr><tr>
+    <td><%= "State: #{@building.state}" %></td>
+  </tr><tr>
+    <td><%= "Postal Code: #{@building.postal_code}" %></td>
+  </tr><tr>
+    <td><%= "Description: #{@building.description}" %></td>
+  </tr>
+</table>
+
+ <li> <%= link_to 'ADD MORE', new_building_path %> </li>

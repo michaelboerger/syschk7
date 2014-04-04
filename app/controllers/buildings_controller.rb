@@ -7,11 +7,15 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
 
     if @building.save
-      redirect_to new_building_path
+      redirect_to @building
       flash[:notice] = "I LOVED THAT BUILDING, THANKS!"
     else
       render 'new'
     end
+  end
+
+  def show
+    @building = Building.find(params[:id])
   end
 
   private

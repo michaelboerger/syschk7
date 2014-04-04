@@ -37,12 +37,13 @@ feature "User creates new building", %Q{
 
     click_on "USER FRIENDLY BUILDING ADDITION BUTTON"
 
+    expect(page).to have_content ("I LOVED THAT BUILDING, THANKS!")
+
     expect(page).to have_content (@building.street_address)
     expect(page).to have_content (@building.city)
     expect(page).to have_content (@building.state)
     expect(page).to have_content (@building.postal_code)
     expect(page).to have_content (@building.description)
-    expect(page).to have_content ("I LOVED THAT BUILDING, THANKS!")
     expect(Building.count).to eq prev_count + 1
   end
 
