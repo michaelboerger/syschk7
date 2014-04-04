@@ -42,11 +42,11 @@ feature "User creates new building", %Q{
     expect(page).to have_content (@building.state)
     expect(page).to have_content (@building.postal_code)
     expect(page).to have_content (@building.description)
-    expect(page).to have_content ("More buildings for the building empire")
+    expect(page).to have_content ("I LOVED THAT BUILDING, THANKS!")
     expect(Building.count).to eq prev_count + 1
   end
 
-  scenario "without valid attributes" do
-    # BAD STUFF HAPPENS
-  end
+  # scenario "without valid attributes" do
+  #   # BAD STUFF HAPPENS
+  # end
 end
