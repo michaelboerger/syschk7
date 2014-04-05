@@ -18,6 +18,16 @@ class OwnersController < ApplicationController
     @owner = Owner.find(params[:id])
   end
 
+  def index
+    @owners = Owner.all
+  end
+
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.delete
+    redirect_to owner_url
+  end
+
   private
 
   def owner_params

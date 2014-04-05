@@ -1,0 +1,9 @@
+<% @owners.each do |owner| %>
+  <div>
+    <p><%= owner.first_name %></p>
+    <p><%= owner.last_name %></p>
+    <p><%= owner.email %></p>
+    <p><%= owner.company %></p>
+    <%= link_to "NO ONE CAN OWN A BUILDING", owner, method: :delete %>
+  </div>
+<% end %>
