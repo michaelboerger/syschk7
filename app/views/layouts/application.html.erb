@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
+<% flash.each do |type, message|  %>
+  <div class="<%= type %>"><%= message %></div>
 <% end %>
 
 <%= yield %>
