@@ -6,5 +6,7 @@
   <%= f.input :state %>
   <%= f.input :postal_code %>
   <%= f.input :description %>
+  <%= f.association :owner, label_method: :email %>
+
   <%= f.button :submit, "USER FRIENDLY BUILDING ADDITION BUTTON" %>
-  <% end %>
+<% end %>

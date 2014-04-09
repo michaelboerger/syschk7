@@ -10,6 +10,7 @@ class OwnersController < ApplicationController
       redirect_to @owner
       flash[:notice] = "But, if you really think about it, can anyone really OWN a building?"
     else
+      flash.now[:alert] = "There was an error with the info you provided"
       render 'new'
     end
   end

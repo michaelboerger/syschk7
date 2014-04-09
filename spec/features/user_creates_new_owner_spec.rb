@@ -28,10 +28,6 @@ feature "User creates new owner", %Q{
 
     click_on "This person owns a BUILDING!! Whoa!"
 
-    expect(page).to have_content (@owner.first_name)
-    expect(page).to have_content (@owner.last_name)
-    expect(page).to have_content (@owner.email)
-    expect(page).to have_content (@owner.company)
     expect(page).to have_content ("But, if you really think about it, can anyone really OWN a building?")
     expect(Owner.count).to eq prev_count + 1
   end
@@ -40,8 +36,6 @@ feature "User creates new owner", %Q{
    scenario "without required attributes" do
     click_on "This person owns a BUILDING!! Whoa!"
 
-    expect(page).to have_content ("First namecan't be blank")
-    expect(page).to have_content ("Last namecan't be blank")
-    expect(page).to have_content ("Emailcan't be blank")
+    expect(page).to have_content "There was an error with the info you provided"
   end
 end
