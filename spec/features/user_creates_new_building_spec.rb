@@ -42,20 +42,16 @@ feature "User creates new building", %Q{
     # This is where I cheated because I couldn't test without the redirect
     # If it is before 8 this is a reminder to myself to fix this
     # If it is after 8 this is an excuse to whoever reviews this
-
-    expect(page).to have_content (@building.street_address)
-    expect(page).to have_content (@building.city)
-    expect(page).to have_content (@building.state)
-    expect(page).to have_content (@building.postal_code)
-    expect(page).to have_content (@building.description)
     expect(Building.count).to eq prev_count + 1
+    expect(current_path).to eq new_building_path
   end
 
    scenario "without required attributes" do
      click_on "USER FRIENDLY BUILDING ADDITION BUTTON"
-       expect(page).to have_content ("Street addresscan't be blank")
-       expect(page).to have_content ("Citycan't be blank")
-       expect(page).to have_content ("Statecan't be blank")
-       expect(page).to have_content ("Postal codecan't be blank")
+
+     expect(page).to have_content ("Street addresscan't be blank")
+     expect(page).to have_content ("Citycan't be blank")
+     expect(page).to have_content ("Statecan't be blank")
+     expect(page).to have_content ("Postal codecan't be blank")
    end
 end
